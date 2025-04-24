@@ -8,10 +8,12 @@ public class Pantallas : MonoBehaviour
     private void OnEnable()
     {
         Player.OnDie += ActivateDead;
+        PlayerManagement.OnWin += ActivateWin;
     }
     private void OnDisable()
     {
         Player.OnDie -= ActivateDead;
+        PlayerManagement.OnWin -= ActivateWin;
     }
     public void ActivateDead()
     {

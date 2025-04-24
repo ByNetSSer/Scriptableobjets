@@ -12,7 +12,7 @@ public class Player : MonoBehaviour
     [SerializeField] float time = 5;
     [SerializeField] float Count;
     public bool CanJump;
-    public bool Pass;
+    public bool Pass = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -59,6 +59,7 @@ public class Player : MonoBehaviour
 
             CanCure = true;
         }
+        
     }
     private void OnTriggerEnter(Collider other)
     {
@@ -78,6 +79,10 @@ public class Player : MonoBehaviour
 
             CanCure = false;
         }
+        if (collision.gameObject.tag == "Fin")
+        {
+            Pass = false;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -90,6 +95,10 @@ public class Player : MonoBehaviour
         else if (collision.gameObject.tag == "Dead")
         {
             Vida = Vida - Vida;
+        }
+        if (collision.gameObject.tag == "Fin")
+        {
+            Pass = true;
         }
     }
     public void Collect()
