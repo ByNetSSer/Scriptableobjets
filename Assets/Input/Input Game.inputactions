@@ -15,15 +15,6 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Change Player",
-                    "type": "Button",
-                    "id": "a5e34f48-f2b0-49fe-bfd6-8edd00238915",
-                    "expectedControlType": "",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
-                },
-                {
                     "name": "Vertical",
                     "type": "Value",
                     "id": "237f8231-184d-48ef-8bdc-abb7beb39010",
@@ -36,6 +27,24 @@
                     "name": "Horizontal",
                     "type": "Button",
                     "id": "f839ea2f-627a-4242-a0df-db55258dbc8e",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Change Player",
+                    "type": "Button",
+                    "id": "a5e34f48-f2b0-49fe-bfd6-8edd00238915",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Changeplayermenos",
+                    "type": "Button",
+                    "id": "5e05e4f1-275a-4b6d-b8bd-6613749ba9e5",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -130,6 +139,17 @@
                     "action": "Horizontal",
                     "isComposite": false,
                     "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "9baf4ad4-4ed3-4250-9836-61c3b04df7bb",
+                    "path": "<Keyboard>/k",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Changeplayermenos",
+                    "isComposite": false,
+                    "isPartOfComposite": false
                 }
             ]
         }

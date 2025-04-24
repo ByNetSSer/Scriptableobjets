@@ -51,10 +51,10 @@ public class PlayerManagement : MonoBehaviour
     {
         DireccionH = context.ReadValue<float>();
     }
-    public void OnChangePlayerButton(InputAction.CallbackContext context)
+    public void OnChangePlayerButtonM(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
-        if (PositionSelected+ 1 > Jugadores.Length)
+        if (PositionSelected+ 1 > Jugadores.Length-1)
         {
             PositionSelected = 0;
         }
@@ -63,6 +63,19 @@ public class PlayerManagement : MonoBehaviour
             PositionSelected++;
         }
         
+    }
+    public void OnChangePlayerButtonn(InputAction.CallbackContext context)
+    {
+        if (!context.performed) return;
+        if (PositionSelected - 1 < 0)
+        {
+            PositionSelected = Jugadores.Length-1;
+        }
+        else
+        {
+            PositionSelected--;
+        }
+
     }
     public void Onjump(InputAction.CallbackContext context)
     {

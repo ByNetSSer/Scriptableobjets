@@ -22,6 +22,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Vida > 1)
+        {
+            Vida = 1;
+        }
         BarraVida.fillAmount = Vida;
         if(Vida <= 0){
             OnDie?.Invoke();
@@ -36,10 +40,7 @@ public class Player : MonoBehaviour
                 Count = 0;
             }
         }
-        if (Vida >1)
-        {
-            Vida = 1;
-        }
+        
 
     }
     private void OnEnable()
@@ -64,11 +65,16 @@ public class Player : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         
-        if (other.gameObject.tag == "Moneda" || other.gameObject.tag == "Fin")
+        if (other.gameObject.tag == "Moneda")
         {
             OnCollect?.Invoke();
             Destroy(other.gameObject);
 
+        }
+        if (other.gameObject.tag == "Cura")
+        {
+            Vida += 0.2f;
+            Destroy(other.gameObject);
         }
     }
     private void OnCollisionExit(Collision collision)

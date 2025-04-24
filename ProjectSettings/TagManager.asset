@@ -9,6 +9,7 @@ TagManager:
   - Moneda
   - Fin
   - Dead
+  - Cura
   layers:
   - Default
   - TransparentFX
