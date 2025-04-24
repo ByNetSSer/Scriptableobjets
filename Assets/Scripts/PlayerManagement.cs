@@ -24,7 +24,7 @@ public class PlayerManagement : MonoBehaviour
     }
     private void FixedUpdate()
     {
-        PlayerSelected.GetComponent<Rigidbody>().linearVelocity = new Vector3(DireccionH* MovementForce, 0,DireccionV* MovementForce);
+        PlayerSelected.GetComponent<Rigidbody>().linearVelocity = new Vector3(DireccionH* MovementForce, PlayerSelected.GetComponent<Rigidbody>().linearVelocity.y, DireccionV* MovementForce);
     }
     public void OnMovementV(InputAction.CallbackContext context)
     {
@@ -37,12 +37,24 @@ public class PlayerManagement : MonoBehaviour
     public void OnChangePlayerButton(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
-        PositionSelected++;
+        if (PositionSelected+ 1 > Jugadores.Length)
+        {
+            PositionSelected = 0;
+        }
+        else
+        {
+            PositionSelected++;
+        }
+        
     }
     public void Onjump(InputAction.CallbackContext context)
     {
         if (!context.performed) return;
-        PlayerSelected.GetComponent<Rigidbody>().AddForce(Vector3.up*JumpForce,ForceMode.Impulse);
+        if (PlayerSelected.GetComponent<Player>().CanJump)
+        {
+            PlayerSelected.GetComponent<Rigidbody>().AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+        }
+        
     }
 
 }
